@@ -8,7 +8,12 @@ namespace DapperCrud
     {
         static void Main(string[] args)
         {
-            
+            CRUD add = new CRUD();
+            add.Create();
+            add.Create();
+            add.Update();
+            add.Read();
+            add.Delete();
         }
     }
 }
