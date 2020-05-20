@@ -66,6 +66,25 @@ namespace DapperCrud
                 conn.Close();
             }
         }
+        public void Delete(){
+            using(SqlConnection conn = new SqlConnection(constring)){
+                conn.Open();
+                System.Console.Write("Id: ");
+                int id = int.Parse(Console.ReadLine());
+                var res = conn.Execute($"Delete from Client where Id = {id}");
+                if(res > 0){
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    System.Console.WriteLine("Client deleted successfully!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("Error!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                conn.Close();
+            }
+        }
         
     }
 }
